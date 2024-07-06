@@ -1,13 +1,18 @@
-name: learn-github-actions
-run-name: ${{ github.actor }} is learning GitHub Actions
+name: Hello World Workflow
+Name: The name of the workflow is "Hello World Workflow".
 on: [push]
+Triggers: This workflow is triggered on a push event.
+on: pull_request, on: watch, on: fork, on: create, on: delete, on: deployment
 jobs:
-check-bats-version:
+hello_world_job:
 runs-on: ubuntu-latest
+Jobs: The workflow contains a single job named hello_world_job.
+runs-on: This keyword specifies the operating system or environment where the job will run.
+ubuntu-latest: The latest version of Ubuntu provided by GitHub.
+Steps: The job contains two steps:
 steps:
-- uses: actions/checkout@v4
-- uses: actions/setup-node@v4
-with:
-node-version: '20'
-- run: npm install -g bats
-- run: bats -v
+- name: Checkout repository
+uses: actions/checkout@v2
+Checkout repository: Uses the actions/checkout@v2 action to clone the repository.
+- name: Print Hello World
+run: echo "Hello, World!"
